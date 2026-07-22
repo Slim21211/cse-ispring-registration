@@ -1,0 +1,94 @@
+.root {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #fe5000;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(254, 80, 0, 0.12);
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+}
+
+.close {
+  background: none;
+  border: none;
+  color: #bbb;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.15s;
+}
+
+.close:hover {
+  color: #555;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #888;
+  margin: 0 0 14px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background: #fff8f5;
+  border: 1.5px solid #fe5000;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+
+.btn:hover {
+  background: #fe5000;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn:hover .arrow {
+  color: #fff;
+}
+
+.arrow {
+  font-size: 16px;
+  color: #fe5000;
+  transition: color 0.15s;
+}

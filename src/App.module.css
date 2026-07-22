@@ -8,7 +8,7 @@
 
 /* ─── Шапка ─── */
 .header {
-  background: #FE5000;
+  background: #fe5000;
   padding: 40px 24px 48px;
   text-align: center;
   color: #fff;
@@ -35,81 +35,89 @@
   margin: 0;
 }
 
-/* ─── Поиск ─── */
-.searchWrap {
-  padding: 0 16px;
-  margin-top: -24px;
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: center;
-}
-
 /* ─── Основной контент ─── */
 .main {
   flex: 1;
-  padding: 16px 16px 40px;
+  padding: 24px 16px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  gap: 16px;
 }
 
-.section {
-  width: 100%;
-  max-width: 720px;
-  margin-bottom: 24px;
-}
-
-.sectionLabel {
-  font-size: 12px;
-  font-weight: 700;
-  color: #aaa;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin: 0 0 10px;
-}
-
-.grid {
+/* ─── Кнопки Москва / МО ─── */
+.pinnedSection {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-}
-
-/* ─── Скелетоны ─── */
-@keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-.skeletons {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
   width: 100%;
-  max-width: 720px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-  margin-top: 16px;
+  max-width: 560px;
 }
 
-.skeleton {
-  height: 60px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #ececec 25%, #e0e0e0 50%, #ececec 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease infinite;
-}
-
-/* ─── Пусто ─── */
-.empty {
+.pinnedBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 16px;
+  background: linear-gradient(135deg, #fe5000, #ff7a3d);
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s, background 0.15s;
+  font-family: inherit;
   text-align: center;
-  padding: 48px 16px;
-  color: #aaa;
-  font-size: 15px;
 }
 
-.empty span {
-  font-size: 40px;
-  display: block;
-  margin-bottom: 12px;
+.pinnedBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.pinnedBtnActive {
+  background: linear-gradient(135deg, #c43d00, #e05020);
+}
+
+.pinnedBtnActive:hover {
+  transform: none;
+  opacity: 1;
+}
+
+.pinnedBtnName {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pinnedBtnSub {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ─── Разделитель ─── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 560px;
+  color: #bbb;
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+/* ─── Поиск ─── */
+.searchWrap {
+  width: 100%;
+  max-width: 560px;
 }
 
 /* ─── Ошибка ─── */
@@ -139,11 +147,11 @@
     padding: 32px 16px 44px;
   }
 
-  .grid {
+  .pinnedSection {
     grid-template-columns: 1fr;
   }
 
-  .skeletons {
-    grid-template-columns: 1fr;
+  .pinnedBtnName {
+    font-size: 16px;
   }
 }

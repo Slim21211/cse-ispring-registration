@@ -1,4 +1,3 @@
-// src/components/SearchBar/SearchBar.tsx
 import { useRef, useEffect } from 'react';
 import { City } from '../../types';
 import styles from './SearchBar.module.css';
@@ -11,17 +10,10 @@ interface Props {
   onSelect: (city: City) => void;
 }
 
-export function SearchBar({
-  value,
-  onChange,
-  suggestions,
-  loading,
-  onSelect,
-}: Props) {
+export function SearchBar({ value, onChange, suggestions, loading, onSelect }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const isOpen = value.trim().length > 0;
 
-  // закрываем дропдаун при клике снаружи
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
@@ -32,21 +24,13 @@ export function SearchBar({
     return () => document.removeEventListener('mousedown', handleClick);
   }, [onChange]);
 
-  function handleSelect(city: City) {
-    window.open(city.url, '_blank', 'noopener,noreferrer');
-    onChange('');
-  }
-
-  // подсвечиваем совпадение в названии
   function highlight(name: string, query: string) {
     const idx = name.toLowerCase().indexOf(query.toLowerCase());
     if (idx === -1) return <span>{name}</span>;
     return (
       <>
         {name.slice(0, idx)}
-        <mark className={styles.mark}>
-          {name.slice(idx, idx + query.length)}
-        </mark>
+        <mark className={styles.mark}>{name.slice(idx, idx + query.length)}</mark>
         {name.slice(idx + query.length)}
       </>
     );
@@ -54,26 +38,20 @@ export function SearchBar({
 
   return (
     <div className={styles.wrapper} ref={rootRef}>
-      <span className={styles.icon}>🔍</span>
+      <span className={styles.icon}>{loading ? '⏳' : '🔍'}</span>
       <input
         className={styles.input}
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder={
-          loading ? 'Загружаем города...' : 'Начни вводить название города...'
-        }
+        placeholder={loading ? 'Загружаем города...' : 'Начни вводить название города...'}
         autoComplete="off"
         autoCorrect="off"
         disabled={loading}
         spellCheck={false}
       />
       {value && (
-        <button
-          className={styles.clear}
-          onClick={() => onChange('')}
-          type="button"
-        >
+        <button className={styles.clear} onClick={() => onChange('')} type="button">
           ✕
         </button>
       )}
@@ -85,7 +63,7 @@ export function SearchBar({
               <button
                 key={city.id}
                 className={styles.suggestion}
-                onClick={() => handleSelect(city)}
+                onClick={() => { onSelect(city); onChange(''); }}
                 type="button"
               >
                 <span className={styles.suggestionName}>
