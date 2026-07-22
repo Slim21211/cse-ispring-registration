@@ -1,0 +1,149 @@
+.root {
+  min-height: 100vh;
+  background: #f8f8f8;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Шапка ─── */
+.header {
+  background: #FE5000;
+  padding: 40px 24px 48px;
+  text-align: center;
+  color: #fff;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 15px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ─── Поиск ─── */
+.searchWrap {
+  padding: 0 16px;
+  margin-top: -24px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ─── Основной контент ─── */
+.main {
+  flex: 1;
+  padding: 16px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.section {
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+/* ─── Скелетоны ─── */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeletons {
+  width: 100%;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.skeleton {
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ececec 25%, #e0e0e0 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease infinite;
+}
+
+/* ─── Пусто ─── */
+.empty {
+  text-align: center;
+  padding: 48px 16px;
+  color: #aaa;
+  font-size: 15px;
+}
+
+.empty span {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* ─── Ошибка ─── */
+.error {
+  color: #d32f2f;
+  font-size: 14px;
+  text-align: center;
+  padding: 24px;
+}
+
+/* ─── Футер ─── */
+.footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  color: #bbb;
+  border-top: 1px solid #eee;
+}
+
+/* ─── Адаптив ─── */
+@media (max-width: 480px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .header {
+    padding: 32px 16px 44px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skeletons {
+    grid-template-columns: 1fr;
+  }
+}
