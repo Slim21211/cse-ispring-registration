@@ -128,6 +128,24 @@ export function App() {
             loading={loading}
           />
         </div>
+
+        {/* Разделитель */}
+        <div className={styles.dividerFull} />
+
+        {/* Кнопка входа */}
+        <div className={styles.loginBtnWrapper}>
+          <p className={styles.loginHint}>
+            Для зарегистрированных пользователей
+          </p>
+          <a
+            href="https://cse.ispring.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.loginBtn}
+          >
+            Войти в iSpring →
+          </a>
+        </div>
       </main>
 
       <footer className={styles.footer}>
