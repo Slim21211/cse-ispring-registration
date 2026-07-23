@@ -21,11 +21,19 @@ export function App() {
   }, []);
 
   const topCities = useMemo(() => cities.filter((c) => !c.parent_id), [cities]);
-  const pinned = useMemo(() => topCities.filter((c) => c.is_pinned), [topCities]);
+  const pinned = useMemo(
+    () => topCities.filter((c) => c.is_pinned),
+    [topCities]
+  );
 
   const fuse = useMemo(
-    () => new Fuse(topCities, { keys: ['name'], threshold: 0.35, minMatchCharLength: 1 }),
-    [topCities],
+    () =>
+      new Fuse(topCities, {
+        keys: ['name'],
+        threshold: 0.35,
+        minMatchCharLength: 1,
+      }),
+    [topCities]
   );
 
   const suggestions = useMemo(() => {
@@ -34,8 +42,11 @@ export function App() {
   }, [query, fuse]);
 
   const subCities = useMemo(
-    () => (selectedParent ? cities.filter((c) => c.parent_id === selectedParent.id) : []),
-    [selectedParent, cities],
+    () =>
+      selectedParent
+        ? cities.filter((c) => c.parent_id === selectedParent.id)
+        : [],
+    [selectedParent, cities]
   );
 
   function handleCitySelect(city: City) {
@@ -68,9 +79,14 @@ export function App() {
         {error && <p className={styles.error}>Ошибка загрузки: {error}</p>}
 
         {/* Кнопки Москва и МО */}
-        {pinned.length > 0 && (
-          <div className={styles.pinnedSection}>
-            {pinned.map((city) => (
+        <div className={styles.pinnedSection}>
+          {loading ? (
+            <>
+              <div className={styles.pinnedSkeleton} />
+              <div className={styles.pinnedSkeleton} />
+            </>
+          ) : (
+            pinned.map((city) => (
               <button
                 key={city.id}
                 className={`${styles.pinnedBtn} ${selectedParent?.id === city.id ? styles.pinnedBtnActive : ''}`}
@@ -84,9 +100,9 @@ export function App() {
                     : 'Выбрать подразделение →'}
                 </span>
               </button>
-            ))}
-          </div>
-        )}
+            ))
+          )}
+        </div>
 
         {/* Панель подразделений */}
         {selectedParent && subCities.length > 0 && (
