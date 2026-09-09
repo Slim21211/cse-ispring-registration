@@ -8,7 +8,7 @@ interface Props {
 export function CityCard({ city }: Props) {
   return (
     <a
-      href={city.url}
+      href={city.url ?? undefined}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.card}

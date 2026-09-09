@@ -56,7 +56,7 @@ export function App() {
       setSelectedParent((prev) => (prev?.id === city.id ? null : city));
     } else {
       setSelectedParent(null);
-      window.open(city.url, '_blank', 'noopener,noreferrer');
+      window.open(city.url ?? undefined, '_blank', 'noopener,noreferrer');
     }
   }
 

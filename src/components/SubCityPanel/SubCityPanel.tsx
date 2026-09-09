@@ -21,7 +21,7 @@ export function SubCityPanel({ parent, subCities, onClose }: Props) {
         {subCities.map((city) => (
           <a
             key={city.id}
-            href={city.url}
+            href={city.url ?? undefined}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.btn}
