@@ -26,11 +26,12 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          VITE_GITHUB_PAGES_URL: https://slim21211.github.io/cse-portal-assets
-      - uses: actions/configure-pages@v4
+          VITE_GITHUB_PAGES_URL: https://assets.cse-hr.ru
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
