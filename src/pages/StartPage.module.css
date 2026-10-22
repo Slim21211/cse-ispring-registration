@@ -1,0 +1,123 @@
+.root {
+  min-height: 100vh;
+  background: #f8f8f8;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #fe5000;
+  padding: 40px 24px 48px;
+  text-align: center;
+  color: #fff;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 15px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.main {
+  flex: 1;
+  padding: 40px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 560px;
+  min-height: 112px;
+  padding: 24px;
+  border-radius: 18px;
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition:
+    transform 0.1s,
+    box-shadow 0.15s,
+    background 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #1f2937;
+  outline-offset: 3px;
+}
+
+/* Войти — тёмно-синий */
+.btnLogin {
+  background: #1f3a5f;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(31, 58, 95, 0.3);
+}
+
+.btnLogin:hover {
+  background: #17304f;
+  box-shadow: 0 10px 24px rgba(31, 58, 95, 0.38);
+}
+
+/* Регистрация — фирменный оранжевый */
+.btnRegister {
+  background: #fe5000;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(254, 80, 0, 0.3);
+}
+
+.btnRegister:hover {
+  background: #e04600;
+  box-shadow: 0 10px 24px rgba(254, 80, 0, 0.38);
+}
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  color: #bbb;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .header {
+    padding: 32px 16px 44px;
+  }
+
+  .btn {
+    min-height: 96px;
+    font-size: 24px;
+  }
+}

@@ -224,3 +224,24 @@
   text-align: center;
   margin-bottom: 16px;
 }
+
+/* ─── Ссылка «На главную» ─── */
+.header {
+  position: relative;
+}
+
+.backLink {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.backLink:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
