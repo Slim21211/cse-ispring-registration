@@ -71,7 +71,11 @@ export function RegistrationPage() {
         <a href="#/" className={styles.backLink}>
           ← На главную
         </a>
-        <div className={styles.logo}>КСЭ</div>
+        <img
+          src={`${import.meta.env.BASE_URL}logo-white.png`}
+          alt="Курьер Сервис Экспресс"
+          className={styles.logoImg}
+        />
         <h1 className={styles.title}>Регистрация в iSpring</h1>
         <p className={styles.subtitle}>
           Выбери свой город и перейди по ссылке для регистрации

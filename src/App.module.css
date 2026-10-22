@@ -245,3 +245,17 @@
   opacity: 1;
   text-decoration: underline;
 }
+
+/* ─── Логотип ─── */
+.logoImg {
+  display: block;
+  height: 72px;
+  width: auto;
+  margin: 0 auto 16px;
+}
+
+@media (max-width: 480px) {
+  .logoImg {
+    height: 56px;
+  }
+}

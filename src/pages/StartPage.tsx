@@ -6,17 +6,17 @@ export function StartPage() {
   return (
     <div className={styles.root}>
       <header className={styles.header}>
-        <div className={styles.logo}>КСЭ</div>
+        <img
+          src={`${import.meta.env.BASE_URL}logo-white.png`}
+          alt="Курьер Сервис Экспресс"
+          className={styles.logoImg}
+        />
         <h1 className={styles.title}>iSpring</h1>
         <p className={styles.subtitle}>Выбери действие</p>
       </header>
 
       <main className={styles.main}>
-        <a
-          href={LOGIN_URL}
-          target="blank"
-          className={`${styles.btn} ${styles.btnLogin}`}
-        >
+        <a href={LOGIN_URL} className={`${styles.btn} ${styles.btnLogin}`}>
           Войти в iSpring
         </a>
 
